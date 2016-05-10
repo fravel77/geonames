@@ -1,4 +1,4 @@
-<?php namespace Ipalaus\Geonames\Eloquent;
+<?php namespace Arberd\Geonames\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,7 +22,7 @@ class Continent extends Model {
 
 	public function countries()
 	{
-		return $this->hasMany('Ipalaus\Geonames\Eloquent\Country', 'continent');
+		return $this->hasMany('Arberd\Geonames\Eloquent\Country', 'continent');
 	}
 
 }

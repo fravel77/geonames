@@ -6,7 +6,7 @@ class DatabaseRepositoryTest extends PHPUnit_Framework_TestCase {
 
 	public function testTruncateMethodTruncateTable()
 	{
-		$repo = new Ipalaus\Geonames\DatabaseRepository(m::mock('Illuminate\Database\Connection'));
+		$repo = new Arberd\Geonames\DatabaseRepository(m::mock('Illuminate\Database\Connection'));
 		$repo->getConnection()->shouldReceive('table')->once()->with('isern')->andReturn($query = m::mock('StdClass'));
 		$query->shouldReceive('truncate')->once();
 
@@ -15,7 +15,7 @@ class DatabaseRepositoryTest extends PHPUnit_Framework_TestCase {
 
 	public function testIsEmptyMethod()
 	{
-		$repo = new Ipalaus\Geonames\DatabaseRepository(m::mock('Illuminate\Database\Connection'));
+		$repo = new Arberd\Geonames\DatabaseRepository(m::mock('Illuminate\Database\Connection'));
 		$repo->getConnection()->shouldReceive('table')->once()->with('isern')->andReturn($query = m::mock('StdClass'));
 		$query->shouldReceive('count')->once()->andReturn(1);
 

@@ -1,13 +1,13 @@
 <?php
 
 use Mockery as m;
-use Ipalaus\Geonames\Commands\TruncateCommand;
+use Arberd\Geonames\Commands\TruncateCommand;
 
 class TruncateCommandTest extends PHPUnit_Framework_TestCase {
 
 	public function testCommandCall()
 	{
-		$repo = $this->getMock('Ipalaus\Geonames\RepositoryInterface');
+		$repo = $this->getMock('Arberd\Geonames\RepositoryInterface');
 		$repo->expects($this->exactly(10))
 			->method('truncate');
 
@@ -21,7 +21,7 @@ class TruncateCommandTest extends PHPUnit_Framework_TestCase {
 
 	public function testConfirmMethodCall()
 	{
-		$repo = $this->getMock('Ipalaus\Geonames\RepositoryInterface');
+		$repo = $this->getMock('Arberd\Geonames\RepositoryInterface');
 
 		$method = $this->getMethod('confirmTruncate');
 		$method->invokeArgs(new TruncateCommandTestStub($repo), array());
@@ -32,7 +32,7 @@ class TruncateCommandTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testExistingConfigThrowsException()
 	{
-		$repo = $this->getMock('Ipalaus\Geonames\RepositoryInterface');
+		$repo = $this->getMock('Arberd\Geonames\RepositoryInterface');
 
 		$command = $this->getMock('TruncateCommandTestStub', array('confirmTruncate'), array($repo));
 		$command->expects($this->once())

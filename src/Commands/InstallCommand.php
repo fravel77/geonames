@@ -1,4 +1,4 @@
-<?php namespace Ipalaus\Geonames\Commands;
+<?php namespace Arberd\Geonames\Commands;
 
 use RuntimeException;
 use Illuminate\Console\Command;
@@ -30,7 +30,7 @@ class InstallCommand extends Command {
 	{
 		$force = $this->input->getOption('force');
 
-		$path = $this->laravel['path.base'].'/app/config/packages/ipalaus/geonames/config.php';
+		$path = $this->laravel['path.base'].'/app/config/packages/arberd/geonames/config.php';
 
 		// prevents config overwrites
 		if ($this->configExists($path) and ! $force)
@@ -38,8 +38,8 @@ class InstallCommand extends Command {
 			throw new RuntimeException('Config file exists. Use --force if you want to ignore this error and overwrite it.');
 		}
 
-		$this->call('config:publish', array('package' => 'ipalaus/geonames'));
-		$this->call('migrate:publish', array('package' => 'ipalaus/geonames'));
+		$this->call('config:publish', array('package' => 'arberd/geonames'));
+		$this->call('migrate:publish', array('package' => 'arberd/geonames'));
 	}
 
 	/**

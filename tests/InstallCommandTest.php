@@ -1,6 +1,6 @@
 <?php
 
-use Ipalaus\Geonames\Commands\InstallCommand;
+use Arberd\Geonames\Commands\InstallCommand;
 
 class InstallCommandTest extends PHPUnit_Framework_TestCase {
 

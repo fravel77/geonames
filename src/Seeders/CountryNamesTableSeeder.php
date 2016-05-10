@@ -1,4 +1,4 @@
-<?php namespace Ipalaus\Geonames\Seeders;
+<?php namespace Arberd\Geonames\Seeders;
 
 class CountryNamesTableSeeder extends DatabaseSeeder {
 

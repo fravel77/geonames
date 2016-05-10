@@ -12,7 +12,11 @@
         {
             "name": "Isern Palaus",
             "email": "ipalaus@ipalaus.com"
-        }
+        },
+        {
+            "name": "Arber Dervishi",
+            "email": "arberd@gmail.com"
+        }        
     ],
     "require": {
         "php": ">=5.5.9",
@@ -33,7 +37,7 @@
             "src/migrations"
         ],
         "psr-4": {
-            "Ipalaus\\Geonames\\": "src/"
+            "Arberd\\Geonames\\": "src/"
         }
     },
     "minimum-stability": "dev"

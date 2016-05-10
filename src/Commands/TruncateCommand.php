@@ -1,8 +1,8 @@
-<?php namespace Ipalaus\Geonames\Commands;
+<?php namespace Arberd\Geonames\Commands;
 
 use RuntimeException;
 use Illuminate\Console\Command;
-use Ipalaus\Geonames\RepositoryInterface;
+use Arberd\Geonames\RepositoryInterface;
 
 class TruncateCommand extends Command {
 
@@ -23,14 +23,14 @@ class TruncateCommand extends Command {
 	/**
 	 * Repository implementation.
 	 *
-	 * @var \Ipalaus\Geonames\RepositoryInterface
+	 * @var \Arberd\Geonames\RepositoryInterface
 	 */
 	protected $repository;
 
 	/**
 	 * Create a new console command instance.
 	 *
-	 * @param  \Ipalaus\Geonames\RepositoryInterface
+	 * @param  \Arberd\Geonames\RepositoryInterface
 	 * @return void
 	 */
 	public function __construct(RepositoryInterface $repository)

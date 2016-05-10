@@ -1,7 +1,7 @@
 <?php
 
 use Mockery as m;
-use Ipalaus\Geonames\Importer;
+use Arberd\Geonames\Importer;
 
 class ImporterTest extends PHPUnit_Framework_TestCase {
 
@@ -64,7 +64,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase {
 	 */
 	public function testNotEmptyTableThrowsAnException()
 	{
-		$repo = m::mock('Ipalaus\Geonames\RepositoryInterface');
+		$repo = m::mock('Arberd\Geonames\RepositoryInterface');
 		$repo->shouldReceive('isEmpty')->once()->andReturn(false);
 
 		$importer = new Importer($repo);
@@ -73,7 +73,7 @@ class ImporterTest extends PHPUnit_Framework_TestCase {
 
 	protected function getImporter()
 	{
-		$repo = m::mock('Ipalaus\Geonames\RepositoryInterface');
+		$repo = m::mock('Arberd\Geonames\RepositoryInterface');
 		$repo->shouldReceive('isEmpty')->once()->andReturn(true);
 		$repo->shouldReceive('insert')->once();
 

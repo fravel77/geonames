@@ -1,8 +1,8 @@
 <?php
 
 use Mockery as m;
-use Ipalaus\Geonames\Importer;
-use Ipalaus\Geonames\Commands\ImportCommand;
+use Arberd\Geonames\Importer;
+use Arberd\Geonames\Commands\ImportCommand;
 
 class ImportCommandTest extends PHPUnit_Framework_TestCase {
 
@@ -70,7 +70,7 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 			'path'  => __DIR__,
 			'files' => array(
 				'names'     => 'foobar.txt',
-				'countries' => 'ipalaus.zip',
+				'countries' => 'arberd.zip',
 			),
 		);
 
@@ -106,7 +106,7 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 			'path'  => __DIR__,
 			'files' => array(
 				'names'     => 'foobar.txt',
-				'countries' => 'ipalaus.zip',
+				'countries' => 'arberd.zip',
 			),
 		);
 
@@ -139,7 +139,7 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 			'path'  => __DIR__,
 			'files' => array(
 				'names'     => 'foobar.txt',
-				'countries' => 'ipalaus.zip',
+				'countries' => 'arberd.zip',
 			),
 		);
 
@@ -174,7 +174,7 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 			'path'  => __DIR__,
 			'files' => array(
 				'names'     => 'foobar.txt',
-				'countries' => 'ipalaus.zip',
+				'countries' => 'arberd.zip',
 			),
 			'development' => 'lighter.one',
 		);
@@ -211,7 +211,7 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 			'path'  => __DIR__,
 			'files' => array(
 				'names'     => 'foobar.txt',
-				'countries' => 'ipalaus.zip',
+				'countries' => 'arberd.zip',
 			),
 			'wildcard' => '%s',
 		);
@@ -318,7 +318,7 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 
 	protected function getRepo()
 	{
-		return m::mock('Ipalaus\Geonames\RepositoryInterface');
+		return m::mock('Arberd\Geonames\RepositoryInterface');
 	}
 
 }

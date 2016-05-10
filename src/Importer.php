@@ -1,4 +1,4 @@
-<?php namespace Ipalaus\Geonames;
+<?php namespace Arberd\Geonames;
 
 use Clousure;
 use RuntimeException;
@@ -8,14 +8,14 @@ class Importer {
 	/**
 	 * Repository implementation.
 	 *
-	 * @var \Ipalaus\Geonames\RepositoryInterface
+	 * @var \Arberd\Geonames\RepositoryInterface
 	 */
 	protected $repository;
 
 	/**
 	 * Create a new instance of Importer.
 	 *
-	 * @param  \Ipalaus\Geonames\RepositoryInterface  $repository
+	 * @param  \Arberd\Geonames\RepositoryInterface  $repository
 	 * @return void
 	 */
 	public function __construct(RepositoryInterface $repository)

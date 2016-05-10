@@ -1,4 +1,4 @@
-<?php namespace Ipalaus\Geonames;
+<?php namespace Arberd\Geonames;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -55,7 +55,7 @@ class GeonamesServiceProvider extends ServiceProvider {
 			return new DatabaseRepository($connection);
 		});
 
-		$app->bind('Ipalaus\Geonames\RepositoryInterface', function($app)
+		$app->bind('Arberd\Geonames\RepositoryInterface', function($app)
 		{
 			return $app['geonames.repository'];
 		});

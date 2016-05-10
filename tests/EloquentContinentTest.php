@@ -1,7 +1,7 @@
 <?php
 
 use Mockery as m;
-use Ipalaus\Geonames\Eloquent\Continent;
+use Arberd\Geonames\Eloquent\Continent;
 
 class EloquentContinentTest extends PHPUnit_Framework_TestCase {
 
@@ -31,7 +31,7 @@ class EloquentContinentTest extends PHPUnit_Framework_TestCase {
 		$stub = $model->countries();
 
 		$this->assertInstanceOf('\Illuminate\Database\Eloquent\Relations\HasMany', $stub);
-		$this->assertInstanceOf('\Ipalaus\Geonames\Eloquent\Country', $stub->getQuery()->getModel());
+		$this->assertInstanceOf('\Arberd\Geonames\Eloquent\Country', $stub->getQuery()->getModel());
 	}
 
 }

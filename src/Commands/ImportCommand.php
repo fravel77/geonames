@@ -1,9 +1,9 @@
-<?php namespace Ipalaus\Geonames\Commands;
+<?php namespace Arberd\Geonames\Commands;
 
 use ZipArchive;
 use ErrorException;
 use RuntimeException;
-use Ipalaus\Geonames\Importer;
+use Arberd\Geonames\Importer;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
@@ -30,7 +30,7 @@ class ImportCommand extends Command {
 	/**
 	 * Importer instance.
 	 *
-	 * @var \Ipalaus\Geonames\Importer
+	 * @var \Arberd\Geonames\Importer
 	 */
 	protected $importer;
 
@@ -58,7 +58,7 @@ class ImportCommand extends Command {
 	/**
 	 * Create a new console command instance.
 	 *
-	 * @param  \Ipalaus\Geonames\Importer         $importer
+	 * @param  \Arberd\Geonames\Importer         $importer
 	 * @param  \Illuminate\Filesystem\Filesystem  $filesystem
 	 * @return void
 	 */
@@ -231,7 +231,7 @@ class ImportCommand extends Command {
 	 */
 	protected function seedCommand($class, $extra = '')
 	{
-		$string = 'php artisan geonames:seed --class="Ipalaus\Geonames\Seeders\%s" --path="%s" ' . $extra;
+		$string = 'php artisan geonames:seed --class="Arberd\Geonames\Seeders\%s" --path="%s" ' . $extra;
 
 		$command = sprintf($string, $class, $this->getPath());
 

@@ -1,4 +1,4 @@
-<?php namespace Ipalaus\Geonames\Commands;
+<?php namespace Arberd\Geonames\Commands;
 
 use Symfony\Component\Console\Input\InputOption;
 use Illuminate\Database\ConnectionResolverInterface as Resolver;

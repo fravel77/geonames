@@ -1,7 +1,7 @@
 <?php
 
 use Mockery as m;
-use Ipalaus\Geonames\Eloquent\Name;
+use Arberd\Geonames\Eloquent\Name;
 
 class EloquentNameTest extends PHPUnit_Framework_TestCase {
 
@@ -31,7 +31,7 @@ class EloquentNameTest extends PHPUnit_Framework_TestCase {
 		$stub = $model->country();
 
 		$this->assertInstanceOf('\Illuminate\Database\Eloquent\Relations\BelongsTo', $stub);
-		$this->assertInstanceOf('\Ipalaus\Geonames\Eloquent\Country', $stub->getQuery()->getModel());
+		$this->assertInstanceOf('\Arberd\Geonames\Eloquent\Country', $stub->getQuery()->getModel());
 	}
 
 }

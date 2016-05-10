@@ -1,25 +1,27 @@
 Eloquent Geonames
 =================
 
-[![Build Status](https://travis-ci.org/ipalaus/geonames.png?branch=master)](https://travis-ci.org/ipalaus/geonames)
-[![Coverage Status](https://coveralls.io/repos/ipalaus/geonames/badge.png?branch=master)](https://coveralls.io/r/ipalaus/geonames?branch=master)
+[![Build Status](https://travis-ci.org/arberd/geonames.png?branch=master)](https://travis-ci.org/arberd/geonames)
+[![Coverage Status](https://coveralls.io/repos/arberd/geonames/badge.png?branch=master)](https://coveralls.io/r/arberd/geonames?branch=master)
+
+Based on ipalaus/geonames
 
 A collection of Eloquent models and Commands to get all the power of GeoNames in Laravel.
 
 Installation
 ------------
 
-Add `ipalaus/geonames` as a requirement to composer.json:
+Add `arberd/geonames` as a requirement to composer.json:
 
 ```javascript
 {
     "require": {
-        "ipalaus/geonames": "3.0.*"
+        "arberd/geonames": "dev-master"
     }
 }
 ```
 
-**Note**: if you're using Laravel 5.1 you can use the version `"ipalaus/geonames": "2.0.*"`.
+**Note**: if you're using Laravel 5.1 you can use the version `"arberd/geonames": "2.0.*"`.
 
 Update your packages with `composer update` or install with `composer install`.
 
@@ -27,13 +29,13 @@ Once you have installed the dependency, you need to register `geonames` in Larav
 `app/config/app.php` and add the next provider to your `providers` array:
 
 ```php
-'Ipalaus\Geonames\GeonamesServiceProvider'
+'Arberd\Geonames\GeonamesServiceProvider'
 ```
 
 If you run now `php artisan` you should see a new namespace **geonames** with a few commands related to the package. In order to proceed with the install, run the next command:
 
 ```bash
-$ php artisan vendor:publish --provider="Ipalaus\Geonames\GeonamesServiceProvider"
+$ php artisan vendor:publish --provider="Arberd\Geonames\GeonamesServiceProvider"
 ```
 
 This will publish the config file to `config/geonames.php` and the migrations to your `database/migrations` directory. To be able to control what's going on, we recommend you to manually trigger `php artisan migrate`.
@@ -102,7 +104,7 @@ Eloquent Models
 Integrating to a current Eloquent model
 ---------------------------------------
 
-Integrating `ipalaus/geonames` with your existing Eloquent models as easy as:
+Integrating `arberd/geonames` with your existing Eloquent models as easy as:
 
 ```php
 <?php
@@ -111,7 +113,7 @@ class User extends Eloquent {
 
 	public function geoname()
 	{
-		return $this->belongsTo('Ipalaus\Geonames\Eloquent\Name');
+		return $this->belongsTo('Arberd\Geonames\Eloquent\Name');
 	}
 
 }
@@ -142,7 +144,7 @@ GeoNames
 
 ### Tables reference
 
-I think the original table names are ugly and they can conflict with other tables in a current project. I switched to a less uglier ones. You can check the [migration files](https://github.com/ipalaus/geonames/tree/master/src/migrations) to see the used names for our database schema.
+I think the original table names are ugly and they can conflict with other tables in a current project. I switched to a less uglier ones. You can check the [migration files](https://github.com/arberd/geonames/tree/master/src/migrations) to see the used names for our database schema.
 
 <table>
   <tr>
