@@ -1,5 +1,5 @@
 {
-    "name": "ipalaus/geonames",
+    "name": "arberd/geonames",
     "description": "A collection of models and commands to get all the power of GeoNames in Eloquent ORM.",
     "keywords": [
         "geonames",
