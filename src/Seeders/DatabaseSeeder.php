@@ -23,4 +23,9 @@ class DatabaseSeeder extends Seeder {
 		$this->importer = $importer;
 	}
 
+	public function run()
+	{
+
+	}
+
 }
