@@ -38,7 +38,7 @@ class InstallCommand extends Command {
 			throw new RuntimeException('Config file exists. Use --force if you want to ignore this error and overwrite it.');
 		}
 
-		$this->call('config:publish', array('package' => 'arberd/geonames'));
+		$this->call('vendor:publish', array('package' => 'arberd/geonames'));
 		$this->call('migrate:publish', array('package' => 'arberd/geonames'));
 	}
 
