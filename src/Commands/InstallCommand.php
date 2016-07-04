@@ -39,7 +39,7 @@ class InstallCommand extends Command {
 		}
 
 		$this->call('vendor:publish');
-		$this->call('migrate:publish', array('package' => 'arberd/geonames'));
+		// $this->call('migrate:publish', array('package' => 'arberd/geonames'));
 	}
 
 	/**
