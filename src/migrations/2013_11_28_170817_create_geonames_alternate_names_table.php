@@ -15,7 +15,7 @@ class CreateGeonamesAlternateNamesTable extends Migration {
 		Schema::create('geonames_alternate_names', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('name_id')->index();
+			$table->integer('name_id')->->unsigned()->index();
 			$table->string('iso_language', 7);
 			$table->string('alternate_name', 200);
 			$table->boolean('is_preferred')->index();
