@@ -84,7 +84,7 @@ class GeonamesServiceProvider extends ServiceProvider {
 
         $app['command.geonames.update'] = $app->share(function($app)
         {
-            $config = config('geonames.update', array());
+            $config = config('geonames.import', array());
 
             return new Commands\UpdateCommand(new Importer($app['geonames.repository']), $app['files'], $config);
         });
