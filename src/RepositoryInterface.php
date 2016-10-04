@@ -6,5 +6,8 @@ interface RepositoryInterface {
 	public function isEmpty($table);
 	public function count($table);
 	public function insert($table, array $data);
+    public function update($table, array $data);
+    public function delete($table, $id);
+
 
 }

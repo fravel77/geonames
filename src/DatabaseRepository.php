@@ -67,6 +67,32 @@ class DatabaseRepository implements RepositoryInterface {
 		$this->getTable($table)->insert($data);
 	}
 
+    /**
+     * update an array on a given table.
+     *
+     * @param  string  $table
+     * @param  array   $data
+     *
+     * @return int
+     */
+    public function update($table, array $data)
+    {
+        return $this->getTable($table)->update($data);
+    }
+
+    /**
+     * remove a record from given table.
+     *
+     * @param  string  $table
+     * @param  int     $id
+     *
+     * @return boolean
+     */
+    public function delete($table, $id)
+    {
+        return $this->getTable($table)->delete($id);
+    }
+
 	/**
 	 * Begin a new database query with the given table.
 	 *
