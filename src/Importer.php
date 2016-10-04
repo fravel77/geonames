@@ -28,15 +28,17 @@ class Importer {
 	 *
 	 * @param  string  $table
 	 * @param  string  $path
-	 * @return void
+     * @param  boolean $update
+     *
+     * @return void
 	 */
-	public function names($table, $path)
+	public function names($table, $path, $update = false)
 	{
 		$this->isEmpty($table);
 
 		$repository = $this->repository;
 
-		$this->parseFile($path, function($row) use ($table, $repository)
+		$this->parseFile($path, function($row) use ($table, $repository, $update)
 		{
 			$insert = array(
 				'id'              => $row[0],
@@ -57,12 +59,33 @@ class Importer {
 				'elevation'       => $row[15]? $row[15]:null,
 				'gtopo30'         => $row[16],
 				'timezone_id'     => $row[17],
-				'modification_at' => $row[18],
+				'modification_at' => date('U', strtotime($row[18])),
 			);
 
-			$repository->insert($table, $insert);
+            if ($update) {
+                $repository->update($table, $insert);
+            } else {
+			    $repository->insert($table, $insert);
+            }
 		});
 	}
+
+    /**
+     * Parse file and remove entries from the database.
+     *
+     * @param  string  $table
+     * @param  string  $path
+     * @return void
+     */
+    public function delete($table, $path)
+    {
+        $repository = $this->repository;
+
+        $this->parseFile($path, function($row) use ($table, $repository)
+        {
+            $repository->delete($table, $row[0]);
+        });
+    }
 
 	/**
 	 * Parse the countries file and inserts it to the database.
@@ -178,7 +201,7 @@ class Importer {
 				'code'       => $row[0],
 				'name'       => $row[1],
 				'name_ascii' => $row[2],
-				'name_id'    => $row[3],
+				'name_id'    => (int)$row[3],
 			);
 
 			$repository->insert($table, $insert);
@@ -314,7 +337,7 @@ class Importer {
 	 * Parse a given file and return the CSV lines as an array.
 	 *
 	 * @param  string     $path
-	 * @param  \Clousure  $callback
+	 * @param  \Closure  $callback
 	 * @return void
 	 */
 	protected function parseFile($path, $callback)
