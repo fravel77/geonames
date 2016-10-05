@@ -43,9 +43,9 @@ class ConvertCommand extends ImportCommand
      */
     public function __construct(Filesystem $filesystem, array $config)
     {
-        $basePath = $config['json_path'] . '/';
+        $this->basePath = $config['json_path'] . '/';
 
-        $repository = new JsonRepository($filesystem, $basePath);
+        $repository = new JsonRepository($filesystem, $this->basePath);
 
         $app = app();
 
