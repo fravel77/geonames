@@ -13,14 +13,14 @@ class ConvertCommand extends ImportCommand
      *
      * @var string
      */
-    protected $signature = 'immogic:geonamesconvert';
+    protected $signature = 'geonames:convert';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Import Geonames tables from json';
+    protected $description = 'Convert Geonames files to json';
 
     /**
      * Repository implementation.
