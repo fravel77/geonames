@@ -106,7 +106,7 @@ class GeonamesServiceProvider extends ServiceProvider {
 			return new Commands\TruncateCommand($app['geonames.repository']);
 		});
 
-		$this->commands('command.geonames.install', 'command.geonames.import', 'command.geonames.update', 'command.geonames.seed', 'command.geonames.truncate');
+		$this->commands('command.geonames.install', 'command.geonames.import', 'command.geonames.update', 'command.geonames.seed', 'command.geonames.truncate', 'command.geonames.convert');
 	}
 
 	/**
