@@ -43,8 +43,7 @@ class ConvertCommand extends ImportCommand
      */
     public function __construct(Filesystem $filesystem, array $config)
     {
-        $basePath = $this->option('basepath');
-        $basePath = $basePath ? $basePath : $config['json_path'] . '/';
+        $basePath = $config['json_path'] . '/';
 
         $repository = new JsonRepository($filesystem, $basePath);
 
@@ -96,7 +95,6 @@ class ConvertCommand extends ImportCommand
             array('development', null, InputOption::VALUE_NONE, 'Downloads an smaller version of names (~10MB).'),
             array('fetch-only', null, InputOption::VALUE_NONE, 'Just download the files.'),
             array('wipe-files', null, InputOption::VALUE_NONE, 'Wipe old downloaded files and fetch new ones.'),
-            array('basepath', null, InputOption::VALUE_REQUIRED, 'Define Json base path'),
             array('wipe-json', null, InputOption::VALUE_NONE, 'Wipe converted json files.'),
         );
     }
