@@ -47,7 +47,7 @@ class ConvertCommand extends ImportCommand
 
         $repository = new JsonRepository($filesystem, $basePath);
 
-        $app = $this->laravel;
+        $app = app();
 
         $app['geonames.repository'] = $app->share(function($app) use ($repository)
         {
