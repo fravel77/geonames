@@ -62,7 +62,11 @@ class JsonRepository implements RepositoryInterface {
 	 */
 	public function count($table)
 	{
-        $f = fopen($this->basePath . $this->getJsonFileName($table), 'rb');
+        $filename = $this->basePath . $this->getJsonFileName($table);
+        if (!$this->filesystem->exists($filename)) {
+            return 0;
+        }
+        $f = fopen($filename, 'rb');
         $lines = 0;
 
         while (!feof($f)) {

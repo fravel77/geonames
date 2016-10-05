@@ -6,6 +6,9 @@ return array(
 
 		'path' => storage_path() . '/meta/geonames',
 
+        'json_path' => storage_path() . '/meta/geonames/json',
+
+
         'files' => array(
             'countries' => 'http://download.geonames.org/export/dump/countryInfo.txt',
             'names'     => 'http://download.geonames.org/export/dump/allCountries.zip',
