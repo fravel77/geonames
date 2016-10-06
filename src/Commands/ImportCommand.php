@@ -110,7 +110,7 @@ class ImportCommand extends Command {
 		$files = $this->getFiles();
 
 		// loop all the files that we need to donwload
-		foreach ($files as $file) {
+		foreach ($files as $internalName => $file) {
 			$filename = basename($file);
 
 			if ($this->fileExists($path, $filename)) {
@@ -127,6 +127,11 @@ class ImportCommand extends Command {
 			if (substr($filename, -strlen('zip')) === "zip") {
 				$this->line("<info>Unzip:</info> $filename");
 				$filename = $this->extractZip($path, $filename);
+
+                // rename postal codes
+                if ($internalName == 'postal_codes') {
+                    $this->filesystem->move($path . '/' . $filename, $path . '/postalcodes.txt');
+                }
 			}
 		}
 

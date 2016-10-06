@@ -55,7 +55,7 @@ class TruncateCommand extends Command {
 		$tables = array(
 			'geonames_names', 'geonames_alternate_names', 'geonames_countries', 'geonames_language_codes',
 			'geonames_admin_divisions', 'geonames_admin_subdivisions', 'geonames_hierarchies',
-			'geonames_features', 'geonames_timezones', 'geonames_continents',
+			'geonames_features', 'geonames_timezones', 'geonames_continents', 'geonames_postal_codes'
 		);
 
 		foreach ($tables as $table) {

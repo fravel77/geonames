@@ -10,6 +10,7 @@ return array(
 
 
         'files' => array(
+            'postal_codes' => 'http://download.geonames.org/export/zip/allCountries.zip',
             'countries' => 'http://download.geonames.org/export/dump/countryInfo.txt',
             'names'     => 'http://download.geonames.org/export/dump/allCountries.zip',
             'alternate' => 'http://download.geonames.org/export/dump/alternateNames.zip',

@@ -320,6 +320,40 @@ class Importer {
 		});
 	}
 
+    /**
+     * Parse the postal codes file and inserts it to the database.
+     *
+     * @param  string  $table
+     * @param  string  $path
+     * @return void
+     */
+    public function postalcodes($table, $path)
+    {
+        $this->isEmpty($table);
+
+        $repository = $this->repository;
+
+        $this->parseFile($path, function($row) use ($table, $repository)
+        {
+            $insert = array(
+                'iso_alpha2'      => $row[0],
+                'postal_code'     => $row[1],
+                'place_name'      => $row[2],
+                'admin_name1'     => $row[3],
+                'admin_code1'     => $row[4],
+                'admin_name2'     => $row[5],
+                'admin_code2'     => $row[6],
+                'admin_name3'     => $row[7],
+                'admin_code3'     => $row[8],
+                'latitude'        => $row[9],
+                'longitude'       => $row[10],
+                'accuracy'        => $row[11],
+            );
+
+            $repository->insert($table, $insert);
+        });
+    }
+
 	/**
 	 * Prevent wrong executons of the importer.
 	 *
