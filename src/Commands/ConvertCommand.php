@@ -47,21 +47,9 @@ class ConvertCommand extends ImportCommand
 
         $repository = new JsonRepository($filesystem, $this->basePath);
 
-        $app = app();
-
-        $app['geonames.repository'] = $app->share(function($app) use ($repository)
-        {
-            return $repository;
-        });
-
-        $app->bind('Arberd\Geonames\RepositoryInterface', function($app)
-        {
-            return $app['geonames.repository'];
-        });
-
         $this->repository = $repository;
 
-        parent::__construct(new Importer($app['geonames.repository']), $filesystem, $config);
+        parent::__construct(new Importer($repository), $filesystem, $config);
     }
 
     /**
