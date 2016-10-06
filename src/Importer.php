@@ -34,7 +34,7 @@ class Importer {
 	 */
 	public function names($table, $path, $update = false)
 	{
-		$this->isEmpty($table);
+		!$update ? $this->isEmpty($table) : null;
 
 		$repository = $this->repository;
 
