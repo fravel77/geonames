@@ -1,6 +1,6 @@
 <?php namespace Arberd\Geonames\Seeders;
 
-class UpdateNamesTableSeeder extends DatabaseSeeder {
+class DeleteNamesTableSeeder extends DatabaseSeeder {
 
 	/**
 	 * Run the database seeds.
