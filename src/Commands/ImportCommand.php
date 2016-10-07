@@ -78,7 +78,7 @@ class ImportCommand extends Command {
 	 *
 	 * @return void
 	 */
-	public function fire()
+	public function fire($extra = '')
 	{
 		$country     = $this->input->getOption('country');
 		$development = $this->input->getOption('development');
@@ -148,26 +148,26 @@ class ImportCommand extends Command {
 		$this->line("<info>It is time to seed the database. This may take 'a while'...</info>");
 
 		// finally seed the common seeders
-		$this->seedCommand('ContinentsTableSeeder');
-		$this->seedCommand('CountriesTableSeeder');
-		$this->seedCommand('AdminDivionsTableSeeder');
-		$this->seedCommand('AdminSubdivionsTableSeeder');
-		$this->seedCommand('HierarchiesTableSeeder');
-		$this->seedCommand('FeaturesTableSeeder');
-		$this->seedCommand('TimezonesTableSeeder');
-        $this->seedCommand('PostalCodesTableSeeder');
+		$this->seedCommand('ContinentsTableSeeder', $extra);
+		$this->seedCommand('CountriesTableSeeder', $extra);
+		$this->seedCommand('AdminDivionsTableSeeder', $extra);
+		$this->seedCommand('AdminSubdivionsTableSeeder', $extra);
+		$this->seedCommand('HierarchiesTableSeeder', $extra);
+		$this->seedCommand('FeaturesTableSeeder', $extra);
+		$this->seedCommand('TimezonesTableSeeder', $extra);
+        $this->seedCommand('PostalCodesTableSeeder', $extra);
 
 		// depending if we run a country, development or plain names we will run
 		// different seeders. Note that the langauge codes file is only
 		// available with the allCountries.zip file.
 		if ($development) {
-			$this->seedCommand('DevelopmentNamesTableSeeder');
+			$this->seedCommand('DevelopmentNamesTableSeeder', $extra);
 		} elseif ($country) {
-			$this->seedCommand('CountryNamesTableSeeder', '--country=' . $country);
+			$this->seedCommand('CountryNamesTableSeeder', $extra.' --country=' . $country);
 		} else {
-			$this->seedCommand('AlternateNamesTableSeeder');
-			$this->seedCommand('LanguageCodesTableSeeder');
-			$this->seedCommand('NamesTableSeeder');
+			$this->seedCommand('AlternateNamesTableSeeder', $extra);
+			$this->seedCommand('LanguageCodesTableSeeder', $extra);
+			$this->seedCommand('NamesTableSeeder', $extra);
 		}
 	}
 

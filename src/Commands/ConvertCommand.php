@@ -68,7 +68,7 @@ class ConvertCommand extends ImportCommand
             $this->filesystem->makeDirectory($this->basePath, 0755, true);
         }
 
-        parent::fire();
+        parent::fire('--repository=json');
     }
 
     /**
