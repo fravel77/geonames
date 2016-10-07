@@ -113,6 +113,10 @@ class ImportCommand extends Command {
 		foreach ($files as $internalName => $file) {
 			$filename = basename($file);
 
+            if ($internalName == 'postal_codes') {
+                $filename = 'postalcodes.zip';
+            }
+
 			if ($this->fileExists($path, $filename)) {
 				$this->line("<info>File exists:</info> $filename");
 
@@ -130,7 +134,7 @@ class ImportCommand extends Command {
 
                 // rename postal codes
                 if ($internalName == 'postal_codes') {
-                    $this->filesystem->move($path . '/' . $filename, $path . '/postalcodes.txt');
+                    $this->filesystem->move($path . '/allCountries.txt', $path . '/postalcodes.txt');
                 }
 			}
 		}
@@ -151,6 +155,7 @@ class ImportCommand extends Command {
 		$this->seedCommand('HierarchiesTableSeeder');
 		$this->seedCommand('FeaturesTableSeeder');
 		$this->seedCommand('TimezonesTableSeeder');
+        $this->seedCommand('PostalCodesTableSeeder');
 
 		// depending if we run a country, development or plain names we will run
 		// different seeders. Note that the langauge codes file is only

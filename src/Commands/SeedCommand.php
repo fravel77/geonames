@@ -30,6 +30,7 @@ class SeedCommand extends IlluminateSeedCommand {
 		return array_merge(array(
 			array('country', null, InputOption::VALUE_REQUIRED, 'Seed a specific country instead.'),
 			array('path', null, InputOption::VALUE_REQUIRED, 'Path where files are located.'),
+            array('repository', null, InputOption::VALUE_OPTIONAL, 'repository to work with (database, json).'),
 		), parent::getOptions());
 	}
 

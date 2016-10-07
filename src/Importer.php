@@ -23,6 +23,16 @@ class Importer {
 		$this->repository = $repository;
 	}
 
+    /**
+     * set the repository
+     *
+     * @param RepositoryInterface $repository
+     */
+	public function setRepository(RepositoryInterface $repository)
+    {
+        $this->repository = $repository;
+    }
+
 	/**
 	 * Parse the names file and inserts it to the database.
 	 *
@@ -347,7 +357,7 @@ class Importer {
                 'admin_code3'     => $row[8],
                 'latitude'        => $row[9],
                 'longitude'       => $row[10],
-                'accuracy'        => $row[11],
+                'accuracy'        => (int)$row[11],
             );
 
             $repository->insert($table, $insert);

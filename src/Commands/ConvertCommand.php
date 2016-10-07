@@ -59,22 +59,6 @@ class ConvertCommand extends ImportCommand
      */
     public function fire()
     {
-        $app = app();
-
-        $repository = $this->repository;
-
-        $app['geonames.repository'] = $app->share(function($app) use ($repository)
-        {
-            return $repository;
-        });
-
-        $app->bind('Arberd\Geonames\RepositoryInterface', function($app)
-        {
-            return $app['geonames.repository'];
-        });
-
-        parent::__construct(new Importer($repository), $this->filesystem, $this->config);
-
         $wipeJson   = $this->input->getOption('wipe-json');
 
         $wipeJson and $this->filesystem->deleteDirectory($this->basePath);
