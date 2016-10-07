@@ -44,9 +44,10 @@ class UpdateCommand extends ImportCommand {
 	/**
 	 * Execute the console command.
 	 *
+     * @param string $extra
 	 * @return void
 	 */
-	public function fire()
+	public function fire($extra = '')
 	{
 		// path to download our files
 		$path = $this->getPath();

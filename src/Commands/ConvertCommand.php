@@ -55,9 +55,10 @@ class ConvertCommand extends ImportCommand
     /**
      * Execute the console command.
      *
+     * @param string $extra
      * @return void
      */
-    public function fire()
+    public function fire($extra = '')
     {
         $wipeJson   = $this->input->getOption('wipe-json');
 

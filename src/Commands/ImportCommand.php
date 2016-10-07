@@ -76,6 +76,7 @@ class ImportCommand extends Command {
 	/**
 	 * Execute the console command.
 	 *
+     * @param string $extra
 	 * @return void
 	 */
 	public function fire($extra = '')
