@@ -21,10 +21,11 @@ return array(
             'timezones' => 'http://download.geonames.org/export/dump/timeZones.txt',
         ),
         'update_files' => [
-            'modifications' => 'http://download.geonames.org/export/dump/modifications-%s.txt',
-            'deletes'       => 'http://download.geonames.org/export/dump/deletes-%s.txt',
+            'namesmodifications' => 'http://download.geonames.org/export/dump/modifications-%s.txt',
+            'namesdeletes'       => 'http://download.geonames.org/export/dump/deletes-%s.txt',
+            'alternatemodifications' => 'http://download.geonames.org/export/dump/alternateNamesModifications-%s.txt',
+            'alternatedeletes'       => 'http://download.geonames.org/export/dump/alternateNamesDeletes-%s.txt',
         ],
-
         'cities_files' => [
             'cities_small'  => 'http://download.geonames.org/export/dump/cities1000.zip',
             'cities_medium' => 'http://download.geonames.org/export/dump/cities5000.zip',
