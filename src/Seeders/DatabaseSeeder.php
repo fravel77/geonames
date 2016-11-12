@@ -34,22 +34,26 @@ class DatabaseSeeder extends Seeder {
 
 	public function checkRepository()
     {
-        $repo = $this->command->option('repository');
-        switch ($repo) {
-            case 'json':
-                $app = app();
-                $config = config('geonames.import', array());
-                $basePath = $config['json_path'] . '/';
-                $repository = new JsonRepository($app['files'], $basePath);
-                $this->importer->setRepository($repository);
-                break;
-            case 'db':
-                $app = app();
-                $connection = $app['db']->connection();
-                $repository = new DatabaseRepository($connection);
-                $this->importer->setRepository($repository);
-                break;
-        }
+        //$repo = $this->command->option('repository');
+        // switch ($repo) {
+        //     case 'json':
+        //         $app = app();
+        //         $config = config('geonames.import', array());
+        //         $basePath = $config['json_path'] . '/';
+        //         $repository = new JsonRepository($app['files'], $basePath);
+        //         $this->importer->setRepository($repository);
+        //         break;
+        //     case 'db':
+        //         $app = app();
+        //         $connection = $app['db']->connection();
+        //         $repository = new DatabaseRepository($connection);
+        //         $this->importer->setRepository($repository);
+        //         break;
+        // }
+				        $app = app();
+				        $connection = $app['db']->connection();
+				        $repository = new DatabaseRepository($connection);
+				        $this->importer->setRepository($repository);
     }
 
 }

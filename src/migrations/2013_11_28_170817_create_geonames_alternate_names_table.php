@@ -17,7 +17,7 @@ class CreateGeonamesAlternateNamesTable extends Migration {
 			$table->increments('id');
 			$table->integer('name_id')->unsigned()->index();
 			$table->string('iso_language', 7);
-			$table->string('alternate_name', 200);
+			$table->string('alternate_name', 200)->collation('utf8mb4_general_ci');
 			$table->boolean('is_preferred')->index();
 			$table->boolean('is_short')->index();
 			$table->boolean('is_colloquial')->index();

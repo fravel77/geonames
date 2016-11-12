@@ -12,7 +12,7 @@ class GeonamesDefaultsAndNullablesTable extends Migration {
      */
     public function up()
     {
-        DB::statement('ALTER TABLE geonames_names MODIFY COLUMN elevation INT DEFAULT NULL');
+        DB::statement('ALTER TABLE geonames_names MODIFY COLUMN elevation SMALLINT DEFAULT NULL');
         DB::statement('ALTER TABLE geonames_countries MODIFY COLUMN area DOUBLE DEFAULT NULL');
         DB::statement('ALTER TABLE geonames_countries MODIFY COLUMN phone VARCHAR(32)');
         DB::statement('ALTER TABLE geonames_countries MODIFY COLUMN name_id INT DEFAULT NULL');
@@ -25,7 +25,7 @@ class GeonamesDefaultsAndNullablesTable extends Migration {
      */
     public function down()
     {
-        DB::statement('ALTER TABLE geonames_names MODIFY COLUMN elevation INT NOT NULL');
+        DB::statement('ALTER TABLE geonames_names MODIFY COLUMN elevation SMALLINT NOT NULL');
         DB::statement('ALTER TABLE geonames_countries MODIFY COLUMN area DOUBLE NOT NULL');
         DB::statement('ALTER TABLE geonames_countries MODIFY COLUMN phone VARCHAR(10)');
         DB::statement('ALTER TABLE geonames_countries MODIFY COLUMN name_id INT NOT NULL');
