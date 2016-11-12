@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostalCodesTable extends Migration {
+class CreateGeonamesPostalCodesTable extends Migration {
 
 	/**
 	 * Run the migrations.
