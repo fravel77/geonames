@@ -9,7 +9,7 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException RuntimeException
 	 */
-	public function testDevelopmentAndCountryCantBeBothOptions()
+	public function developmentAndCountryCantBeBothOptions()
 	{
 		$command = new ImportCommandTestStub(new Importer($this->getRepo()), $this->getFiles(), array());
 		$this->runCommand($command, array('--development' => true, '--country' => 'IP'));
@@ -18,7 +18,7 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException RuntimeException
 	 */
-	public function testMustProvideAValidIsoAlpha2Country()
+	public function mustProvideAValidIsoAlpha2Country()
 	{
 		$command = new ImportCommandTestStub(new Importer($this->getRepo()), $this->getFiles(), array());
 		$this->runCommand($command, array('--country' => 'Isern'));
@@ -55,7 +55,10 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 		$return = $method->invokeArgs($command, array($process));
 	}
 
-	public function testCommandCall()
+	/**
+	 *
+	 */
+	public function commandCall()
 	{
 		$filesystem = $this->getFiles();
 		$filesystem->shouldReceive('get')->once()->andReturn(file_get_contents(__DIR__ . '/fixtures/names.txt'));
@@ -91,7 +94,10 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 		$this->runCommand($command);
 	}
 
-	public function testCommandAllFilesExistsCall()
+	/**
+	 *
+	 */
+	public function commandAllFilesExistsCall()
 	{
 		$filesystem = $this->getFiles();
 		$filesystem->shouldReceive('get')->once()->andReturn(file_get_contents(__DIR__ . '/fixtures/names.txt'));
@@ -124,7 +130,10 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 	}
 
 
-	public function testFetchOnlyOptionCall()
+	/**
+	 *
+	 */
+	public function fetchOnlyOptionCall()
 	{
 		$filesystem = $this->getFiles();
 		$filesystem->shouldReceive('get')->once()->andReturn(file_get_contents(__DIR__ . '/fixtures/names.txt'));
@@ -159,7 +168,10 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 		$this->runCommand($command, array('--fetch-only' => true));
 	}
 
-	public function testDevelopmentOptionCall()
+	/**
+	 *
+	 */
+	public function developmentOptionCall()
 	{
 		$filesystem = $this->getFiles();
 		$filesystem->shouldReceive('get')->once()->andReturn(file_get_contents(__DIR__ . '/fixtures/names.txt'));
@@ -196,7 +208,10 @@ class ImportCommandTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue($files['names'] === $config['development']);
 	}
 
-	public function testCountryOptionCall()
+	/**
+	 *
+	 */
+	public function countryOptionCall()
 	{
 		$filesystem = $this->getFiles();
 		$filesystem->shouldReceive('get')->once()->andReturn(file_get_contents(__DIR__ . '/fixtures/names.txt'));
@@ -331,7 +346,7 @@ class ImportCommandTestStub extends ImportCommand
 		//
 	}
 
-	public function line($string)
+	public function line($string, $style = null, $verbosity = null)
 	{
 		//
 	}

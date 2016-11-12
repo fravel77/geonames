@@ -4,7 +4,10 @@ use Arberd\Geonames\Commands\InstallCommand;
 
 class InstallCommandTest extends PHPUnit_Framework_TestCase {
 
-	public function testCommandCall()
+	/**
+	 *
+	 */
+	public function commandCall()
 	{
 		$command = new InstallCommandTestStub;
 
@@ -12,19 +15,24 @@ class InstallCommandTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * 
 	 * @expectedException RuntimeException
 	 */
-	public function testExistingConfigThrowsException()
+	public function existingConfigThrowsException()
 	{
-		$command = $this->getMock('InstallCommandTestStub', array('configExists'));
+		$command = $this->getMock('InstallCommand', array('configExists'));
 		$command->expects($this->once())
 				->method('configExists')
 				->will($this->returnValue(true));
 
 		$this->runCommand($command);
+
 	}
 
-	public function testForceEvenConfigExists()
+	/**
+	 *
+	 */
+	public function forceEvenConfigExists()
 	{
 		$command = $this->getMock('InstallCommandTestStub', array('configExists'));
 		$command->expects($this->once())
@@ -36,6 +44,7 @@ class InstallCommandTest extends PHPUnit_Framework_TestCase {
 
 	protected function runCommand($command, $options = array())
 	{
+		$command = new InstallCommandTestStub;
 		return $command->run(new Symfony\Component\Console\Input\ArrayInput($options), new Symfony\Component\Console\Output\NullOutput);
 	}
 

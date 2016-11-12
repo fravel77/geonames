@@ -5,7 +5,10 @@ use Arberd\Geonames\Commands\TruncateCommand;
 
 class TruncateCommandTest extends PHPUnit_Framework_TestCase {
 
-	public function testCommandCall()
+	/**
+	 *
+	 */
+	public function commandCall()
 	{
 		$repo = $this->getMock('Arberd\Geonames\RepositoryInterface');
 		$repo->expects($this->exactly(10))
@@ -30,7 +33,7 @@ class TruncateCommandTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * @expectedException RuntimeException
 	 */
-	public function testExistingConfigThrowsException()
+	public function existingConfigThrowsException()
 	{
 		$repo = $this->getMock('Arberd\Geonames\RepositoryInterface');
 
@@ -58,7 +61,7 @@ class TruncateCommandTest extends PHPUnit_Framework_TestCase {
 
 class TruncateCommandTestStub extends TruncateCommand {
 
-	public function line($string)
+	public function line($string, $style = null, $verbosity = null)
 	{
 		//
 	}
