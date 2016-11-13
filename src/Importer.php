@@ -50,14 +50,6 @@ class Importer {
 
 		$base_path_mod = str_replace('\\', '/', $path);
 
-		// $query = sprintf("LOAD DATA local INFILE '%s' INTO TABLE $table
-		// (`id`, `name`, `ascii_name`, `alternate_names`,
-		// `latitude`, `longitude`, `f_class`, `f_code`,
-		// `country_id`, `cc2`, `admin1`, `admin2`,
-		// `admin3`, `admin4`, `population`, `elevation`,
-		// `gtopo30`, `timezone_id`, `modification_at`,
-		// )", $base_path_mod);
-
 		$query = sprintf("LOAD DATA LOCAL INFILE '%s'
 		INTO TABLE $table
 		CHARACTER SET 'utf8mb4'
@@ -131,7 +123,6 @@ class Importer {
 
 		$base_path_mod = str_replace('\\', '/', $path);
 
-		//$query = sprintf("LOAD DATA LOCAL INFILE '%s' INTO TABLE $table (`iso_alpha2`, `iso_alpha3`, `iso_numeric`, `fips_code`,`name`, `capital`, `area`, `population`, `continent_id`, `tld`, `currency`, `currency_name`,`phone`, `postal_code_format`, `postal_code_regex`, `languages`, `name_id`, `neighbours`, `equivalent_fips_code`)", $base_path_mod);
 		$query = sprintf("LOAD DATA LOCAL INFILE '%s'
 		INTO TABLE $table
 		CHARACTER SET 'UTF8'
@@ -142,32 +133,6 @@ class Importer {
 
 		 $repository->getConnection()->getpdo()->exec($query);
 
-		// $this->parseFile($path, function($row) use ($table, $repository)
-		// {
-		// 	$insert = array(
-		// 		'iso_alpha2'           => $row[0],
-		// 		'iso_alpha3'           => $row[1],
-		// 		'iso_numeric'          => $row[2],
-		// 		'fips_code'            => $row[3],
-		// 		'name'                 => $row[4],
-		// 		'capital'              => $row[5],
-		// 		'area'                 => $row[6]? $row[6]:null,
-		// 		'population'           => $row[7],
-		// 		'continent_id'         => $row[8],
-		// 		'tld'                  => $row[9],
-		// 		'currency'             => $row[10],
-		// 		'currency_name'        => $row[11],
-		// 		'phone'                => $row[12],
-		// 		'postal_code_format'   => $row[13],
-		// 		'postal_code_regex'    => $row[14],
-		// 		'languages'            => $row[15],
-		// 		'name_id'              => $row[16]? $row[16]:null,
-		// 		'neighbours'           => $row[17],
-		// 		'equivalent_fips_code' => $row[18],
-		// 	);
-		//
-		// 	$repository->insert($table, $insert);
-		// });
 	}
 
 	/**
@@ -226,22 +191,6 @@ class Importer {
 
 		$repository->getConnection()->getpdo()->exec($query);
 
-		// $this->parseFile($path, function($row) use ($table, $repository)
-		// {
-		// 	// skip header row
-		// 	if ($row[0] == 'ISO 639-3') {
-		// 		return;
-		// 	}
-		//
-		// 	$insert = array(
-		// 		'iso_639_3'     => $row[0],
-		// 		'iso_639_2'     => $row[1],
-		// 		'iso_639_1'     => $row[2],
-		// 		'language_name' => $row[3],
-		// 	);
-		//
-		// 	$repository->insert($table, $insert);
-		// });
 	}
 
 	/**
@@ -260,7 +209,6 @@ class Importer {
 
 		$base_path_mod = str_replace('\\', '/', $path);
 
-		//$query = sprintf("LOAD DATA local INFILE '%s' INTO TABLE $table (`code`, `name`, `name_ascii`, `name_id`)", $base_path_mod);
 		$query = sprintf("LOAD DATA LOCAL INFILE '%s'
 		INTO TABLE $table
 		CHARACTER SET 'UTF8'
@@ -268,17 +216,6 @@ class Importer {
 
 		$repository->getConnection()->getpdo()->exec($query);
 
-		// $this->parseFile($path, function($row) use ($table, $repository)
-		// {
-		// 	$insert = array(
-		// 		'code'       => $row[0],
-		// 		'name'       => $row[1],
-		// 		'name_ascii' => $row[2],
-		// 		'name_id'    => (int)$row[3],
-		// 	);
-		//
-		// 	$repository->insert($table, $insert);
-		// });
 	}
 
 	/**
@@ -296,7 +233,6 @@ class Importer {
 
 		$base_path_mod = str_replace('\\', '/', $path);
 
-		//$query = sprintf("LOAD DATA local INFILE '%s' INTO TABLE $table (`parent_id`, `child_id`, `type`)", $base_path_mod);
 		$query = sprintf("LOAD DATA LOCAL INFILE '%s'
 		INTO TABLE $table
 		CHARACTER SET 'UTF8'
@@ -304,16 +240,6 @@ class Importer {
 
 		$repository->getConnection()->getpdo()->exec($query);
 
-		// $this->parseFile($path, function($row) use ($table, $repository)
-		// {
-		// 	$insert = array(
-		// 		'parent_id' => $row[0],
-		// 		'child_id'  => $row[1],
-		// 		'type'      => $row[2],
-		// 	);
-		//
-		// 	$repository->insert($table, $insert);
-		// });
 	}
 
 	/**
@@ -331,7 +257,6 @@ class Importer {
 
 		$base_path_mod = str_replace('\\', '/', $path);
 
-		//$query = sprintf("LOAD DATA local INFILE '%s' INTO TABLE $table (`code`, `name`, `description`)", $base_path_mod);
 		$query = sprintf("LOAD DATA LOCAL INFILE '%s'
 		INTO TABLE $table
 		CHARACTER SET 'UTF8'
@@ -339,16 +264,6 @@ class Importer {
 
 		$repository->getConnection()->getpdo()->exec($query);
 
-		// $this->parseFile($path, function($row) use ($table, $repository)
-		// {
-		// 	$insert = array(
-		// 		'code'        => $row[0],
-		// 		'name'        => $row[1],
-		// 		'description' => $row[2],
-		// 	);
-		//
-		// 	$repository->insert($table, $insert);
-		// });
 	}
 
 	/**
@@ -366,7 +281,6 @@ class Importer {
 
 		$base_path_mod = str_replace('\\', '/', $path);
 
-		//$query = sprintf("LOAD DATA local INFILE '%s' INTO TABLE $table (`code`, `name`, `description`)", $base_path_mod);
 		$query = sprintf("LOAD DATA LOCAL INFILE '%s'
 		INTO TABLE $table
 		CHARACTER SET 'UTF8'
@@ -375,23 +289,6 @@ class Importer {
 
 		$repository->getConnection()->getpdo()->exec($query);
 
-		// $this->parseFile($path, function($row) use ($table, $repository)
-		// {
-		// 	// skip header row
-		// 	if ($row[0] == 'CountryCode') {
-		// 		return;
-		// 	}
-		//
-		// 	$insert = array(
-		// 		'country_code' => $row[0],
-		// 		'id'           => $row[1],
-		// 		'gmt_offset'   => $row[2],
-		// 		'dst_offset'   => $row[3],
-		// 		'raw_offset'   => $row[4]
-		// 	);
-		//
-		// 	$repository->insert($table, $insert);
-		// });
 	}
 
 	/**
@@ -409,11 +306,6 @@ class Importer {
 
 		$base_path_mod = str_replace('\\', '/', $path);
 
-		// $query = sprintf("LOAD DATA local INFILE '%s' INTO TABLE $table
-		// (`id`, `name_id`, `iso_language`, `alternate_name`,
-		// `is_preferred`, `is_short`, `is_colloquial`, `is_historic`,
-		// )", $base_path_mod);
-
 		$query = sprintf("LOAD DATA LOCAL INFILE '%s'
 		INTO TABLE $table
 		CHARACTER SET 'utf8mb4'
@@ -421,21 +313,6 @@ class Importer {
 
 		$repository->getConnection()->getpdo()->exec($query);
 
-		// $this->parseFile($path, function($row) use ($table, $repository)
-		// {
-		// 	$insert = array(
-		// 		'id'             => $row[0],
-		// 		'name_id'        => $row[1],
-		// 		'iso_language'   => $row[2],
-		// 		'alternate_name' => $row[3],
-		// 		'is_preferred'   => $row[4]? 1:0,
-		// 		'is_short'       => $row[5]? 1:0,
-		// 		'is_colloquial'  => $row[6]? 1:0,
-		// 		'is_historic'    => $row[7]? 1:0,
-		// 	);
-		//
-		// 	$repository->insert($table, $insert);
-		// });
 	}
 
     /**
@@ -453,12 +330,6 @@ class Importer {
 
 				$base_path_mod = str_replace('\\', '/', $path);
 
-				// $query = sprintf("LOAD DATA local INFILE '%s' INTO TABLE $table
-				// (`iso_alpha2`, `postal_code`, `place_name`, `admin_name1`,
-				// `admin_code1`, `admin_name2`, `admin_code2`, `admin_name3`,
-				// `admin_code3`, `latitude`, `longitude`, `accuracy`
-				// )", $base_path_mod);
-
 				$query = sprintf("LOAD DATA LOCAL INFILE '%s'
 				INTO TABLE $table
 				CHARACTER SET 'UTF8'
@@ -468,25 +339,6 @@ class Importer {
 
 				$repository->getConnection()->getpdo()->exec($query);
 
-        // $this->parseFile($path, function($row) use ($table, $repository)
-        // {
-        //     $insert = array(
-        //         'iso_alpha2'      => $row[0],
-        //         'postal_code'     => $row[1],
-        //         'place_name'      => $row[2],
-        //         'admin_name1'     => $row[3],
-        //         'admin_code1'     => $row[4],
-        //         'admin_name2'     => $row[5],
-        //         'admin_code2'     => $row[6],
-        //         'admin_name3'     => $row[7],
-        //         'admin_code3'     => $row[8],
-        //         'latitude'        => $row[9],
-        //         'longitude'       => $row[10],
-        //         'accuracy'        => (int)$row[11],
-        //     );
-				//
-        //     $repository->insert($table, $insert);
-        // });
     }
 
 	/**
