@@ -1,12 +1,35 @@
 Eloquent Geonames
 =================
 
-[![Build Status](https://travis-ci.org/arberd/geonames.png?branch=master)](https://travis-ci.org/arberd/geonames)
-[![Coverage Status](https://coveralls.io/repos/arberd/geonames/badge.png?branch=master)](https://coveralls.io/r/arberd/geonames?branch=master)
+[![Build Status]
+[![Coverage Status]
 
 Based on ipalaus/geonames
 
 A collection of Eloquent models and Commands to get all the power of GeoNames in Laravel.
+
+Modified to use MySQL statement `LOAD DATA LOCAL INFILE` for importing.
+This requires `array(PDO::MYSQL_ATTR_LOCAL_INFILE => true),` options to be added to mysql driver in Laravel `config/database.php`
+
+```javascript
+'mysql' => [
+    'driver' => 'mysql',
+    'host' => env('DB_HOST', 'localhost'),
+    'port' => env('DB_PORT', '3306'),
+    'database' => env('DB_DATABASE', 'forge'),
+    'username' => env('DB_USERNAME', 'forge'),
+    'password' => env('DB_PASSWORD', ''),
+    'charset' => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix' => '',
+    'strict' => true,
+    'engine' => null,
+    'options'  => array(PDO::MYSQL_ATTR_LOCAL_INFILE => true),
+],
+```
+
+
+
 
 Installation
 ------------
