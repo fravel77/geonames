@@ -29,7 +29,7 @@ class CreateGeonamesCountriesTable extends Migration {
 			$table->string('phone', 10);
 			$table->string('postal_code_format', 100);
 			$table->string('postal_code_regex', 255);
-			$table->integer('name_id')->index();
+			$table->integer('name_id')->unsigned()->index();
 			$table->string('languages', 200);
 			$table->string('neighbours', 100);
 			$table->string('equivalent_fips_code', 10);
