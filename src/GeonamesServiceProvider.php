@@ -95,4 +95,3 @@ class GeonamesServiceProvider extends ServiceProvider {
         return array();
     }
 }
-
