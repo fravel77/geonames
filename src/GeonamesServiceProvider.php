@@ -48,7 +48,7 @@ class GeonamesServiceProvider extends ServiceProvider {
             $connection = $app['db']->connection();
             return new DatabaseRepository($connection);
         });
-        $app->bind('Ipalaus\Geonames\RepositoryInterface', function($app)
+        $app->bind('Arberd\Geonames\RepositoryInterface', function($app)
         {
             return $app['geonames.repository'];
         });
