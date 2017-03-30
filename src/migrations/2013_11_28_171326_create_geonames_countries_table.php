@@ -26,7 +26,7 @@ class CreateGeonamesCountriesTable extends Migration {
 			$table->string('tld', 3);
 			$table->string('currency', 3);
 			$table->string('currency_name', 20);
-			$table->string('phone', 10);
+			$table->string('phone', 20);
 			$table->string('postal_code_format', 100);
 			$table->string('postal_code_regex', 255);
 			$table->integer('name_id')->unsigned()->index();
