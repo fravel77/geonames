@@ -17,6 +17,8 @@ class CreateGeonamesTimezonesTable extends Migration {
 			$table->string('id', 200)->index();
 			$table->decimal('gmt_offset', 3, 1);
 			$table->decimal('dst_offset', 3, 1);
+            		$table->decimal('raw_offset', 3, 1);
+            		$table->string('country_code', 2);			
 		});
 	}
 
